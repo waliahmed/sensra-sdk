@@ -1,0 +1,5 @@
+node_modules
+dist
+dist-tarball
+coverage
+.DS_Store

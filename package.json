@@ -1,0 +1,75 @@
+{
+  "name": "@sensra/sdk",
+  "version": "0.1.0",
+  "description": "Official Sensra JavaScript/TypeScript SDK for error and incident event ingestion",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap",
+    "pack:check": "npm pack --dry-run",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "ci:check": "npm run typecheck && npm run test && npm run build && npm run pack:check",
+    "release": "semantic-release",
+    "prepublishOnly": "npm run clean && npm run ci:check"
+  },
+  "keywords": [
+    "sensra",
+    "sdk",
+    "errors",
+    "exceptions",
+    "incident",
+    "logging",
+    "observability",
+    "monitoring",
+    "ingestion",
+    "typescript",
+    "node"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sensra/sensra-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sensra/sensra-sdk/issues"
+  },
+  "homepage": "https://github.com/sensra/sensra-sdk#readme",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.6",
+    "@semantic-release/npm": "^13.1.5",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "semantic-release": "^25.0.3",
+    "tsup": "^8.3.5",
+    "typescript": "^5.8.3",
+    "vitest": "^2.1.9"
+  }
+}
