@@ -1,6 +1,6 @@
 {
   "name": "@sensra/sdk",
-  "version": "0.1.0",
+  "version": "0.1.1-beta.0",
   "description": "Official Sensra JavaScript/TypeScript SDK for error and incident event ingestion",
   "type": "module",
   "main": "./dist/index.cjs",
